@@ -1,12 +1,11 @@
 from conexao import connect
-
 mydb = connect()
 
-def insert(mydb, Titulo, Nomeautor, Ano, Status_):
+def insert(mydb, Nome, Email, Senha, cpf):
     mycursor = mydb.cursor()
 
-    sql = "INSERT INTO livros (Titulo, Nomeautor, Ano, Status_) VALUES (%s, %s, %s, %s)"
-    val = (Titulo, Nomeautor, Ano, Status_)
+    sql = "INSERT INTO cadastros (Nome, Email, Senha, cpf) VALUES (%s, %s, %s, %s)"
+    val = (Nome, Email, Senha, cpf)
 
     mycursor.execute(sql, val)
 
