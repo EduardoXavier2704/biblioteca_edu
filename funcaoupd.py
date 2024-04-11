@@ -10,6 +10,6 @@ def update(mydb, Titulo, Status_):
 
     mydb.commit()
 
-    print(mycursor.rowcount, "Atualizado com sucesso!.")
+    print(mycursor.rowcount, "Atualizado com sucesso!")
 
     mycursor.close()

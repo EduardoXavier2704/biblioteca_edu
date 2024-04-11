@@ -5,6 +5,8 @@ from delete import delete
 from listagem import listagem
 from inserircadastro import insert as cadastro_insert
 from loginbd import login as login_check
+from emprestar import emprestar as emprestar_livro
+from devolver import devolver as devolver_livro
 
 mydb = connect()
 
@@ -31,7 +33,7 @@ def escolher_login():
 
 def escolha_opcao(mydb):
     while True:
-        opcao = input("Qual das opções você deseja escolher?: (1) atualizar; (2) inserir; (3) deletar; (4) listar; (5) para sair: ")
+        opcao = input("Qual das opções você deseja escolher?: (1) atualizar; (2) inserir; (3) deletar; (4) listar; (5) emprestar; (6) devolver; (7) para sair: ")
         if opcao == '1':
             Titulo = input("Insira o título: ")
             Status_ = input("Insira o novo Status: ")
@@ -48,6 +50,14 @@ def escolha_opcao(mydb):
         elif opcao == '4':
             listagem(mydb)
         elif opcao == '5':
+            Titulo = input("Insira o título: ")
+            Status_ = input("Insira o novo status: ")
+            emprestar_livro(mydb, Titulo, Status_)
+        elif opcao == '6':
+            Titulo = input("Insira o Título: ")
+            Status_ = input("Insira o novo status: ")
+            devolver_livro(mydb, Titulo, Status_)
+        elif opcao == '7':
             print("Obrigado por utilizar o código!")
             exit()
         else:
